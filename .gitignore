@@ -2,3 +2,4 @@
 bootstrap_dnd_terms.py
 generate_term_files.py
 fetch_felines_from_wikipedia.py
+__pycache__/
