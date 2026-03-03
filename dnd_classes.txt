@@ -1,0 +1,16 @@
+Alchemist
+Barbarian
+Bard
+Cleric
+Druid
+Fighter
+Inquisitor
+Magus
+Monk
+Oracle
+Paladin
+Ranger
+Rogue
+Sorcerer
+Warlock
+Wizard
