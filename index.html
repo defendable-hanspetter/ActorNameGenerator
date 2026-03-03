@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Codename Generator</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f6f8;
+            --panel: #ffffff;
+            --text: #142235;
+            --muted: #4d647e;
+            --accent: #0d5bd7;
+            --accent-dark: #0a47a7;
+            --border: #d8e0ea;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: var(--text);
+            background: linear-gradient(165deg, #edf4ff, var(--bg));
+        }
+        .wrap {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 24px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        h1 { margin-top: 0; }
+        p { color: var(--muted); }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 12px;
+            align-items: end;
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+            color: var(--muted);
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 1rem;
+        }
+        button {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            cursor: pointer;
+            font-weight: 600;
+        }
+        button:hover { background: var(--accent-dark); }
+        .status {
+            min-height: 20px;
+            margin: 6px 0 12px;
+            color: var(--muted);
+        }
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        li { margin: 6px 0; }
+        @media (max-width: 680px) {
+            .wrap { margin: 16px; }
+            form { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <h1>Fantasy Codename Generator</h1>
+        <p>Feline proper noun + D&amp;D/Pathfinder term, with alliterative matching.</p>
+
+        <form id="generator-form">
+            <div>
+                <label for="style">Style</label>
+                <select id="style" name="style">
+                    <option value="random">Random</option>
+                    <option value="class">Class</option>
+                    <option value="location">Location</option>
+                    <option value="plane">Plane</option>
+                    <option value="deity">Deity</option>
+                </select>
+            </div>
+            <div>
+                <label for="count">Count (1-25)</label>
+                <input id="count" name="count" type="number" min="1" max="25" value="10">
+            </div>
+            <div>
+                <button type="submit">Generate</button>
+            </div>
+        </form>
+
+        <div class="status" id="status">Loading data files...</div>
+        <h2 id="result-title">Results</h2>
+        <ul id="results"></ul>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
