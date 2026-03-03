@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Codename Generator</title>
+    <title>Actor Codename Generator</title>
     <style>
-        :root {
-            color-scheme: light;
-            --bg: #f4f6f8;
-            --panel: #ffffff;
-            --text: #142235;
-            --muted: #4d647e;
-            --accent: #0d5bd7;
-            --accent-dark: #0a47a7;
-            --border: #d8e0ea;
-        }
-        * { box-sizing: border-box; }
         body {
             margin: 0;
-            font-family: "Segoe UI", Tahoma, sans-serif;
-            color: var(--text);
-            background: linear-gradient(165deg, #edf4ff, var(--bg));
+            background-color: #003232;
+            font-family: sans-serif;
+            color: #DCFFDF;
         }
         .wrap {
-            max-width: 760px;
-            margin: 40px auto;
-            padding: 24px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            margin: 0 auto;
+            padding: 10px;
+            max-width: 600px;
+            width: 80vw;
+            min-height: 400px;
+            background-color: #003232;
+            position: relative;
+            margin-top: 50px;
         }
-        h1 { margin-top: 0; }
-        p { color: var(--muted); }
+        h1, h2, h3 {
+            color: #00DC69;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 20px;
+        }
         form {
             display: grid;
             grid-template-columns: 1fr 1fr auto;
@@ -43,42 +41,53 @@
             display: block;
             font-size: 0.92rem;
             margin-bottom: 6px;
-            color: var(--muted);
         }
         select, input, button {
             width: 100%;
             padding: 10px 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
+            border-radius: 4px;
+            border: 1px solid #0a7260;
             font-size: 1rem;
+            background: #002a2a;
+            color: #DCFFDF;
         }
         button {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
+            background: #00DC69;
+            color: #003232;
+            border-color: #00DC69;
             cursor: pointer;
             font-weight: 600;
         }
-        button:hover { background: var(--accent-dark); }
+        button:hover { background: #00c65e; }
         .status {
             min-height: 20px;
             margin: 6px 0 12px;
-            color: var(--muted);
+            color: #9cc9b6;
         }
         ul {
             margin: 0;
             padding-left: 18px;
         }
         li { margin: 6px 0; }
+        .footer {
+            font-style: italic;
+            font-size: smaller;
+            color: gray;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
         @media (max-width: 680px) {
-            .wrap { margin: 16px; }
+            .wrap { margin: 20px auto; width: 92vw; }
             form { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <main class="wrap">
-        <h1>Fantasy Codename Generator</h1>
+        <h1>Actor Codename Generator</h1>
         <p>Feline proper noun + D&amp;D/Pathfinder term, with alliterative matching.</p>
 
         <form id="generator-form">
@@ -104,6 +113,7 @@
         <div class="status" id="status">Loading data files...</div>
         <h2 id="result-title">Results</h2>
         <ul id="results"></ul>
+        <div class="footer">Style inspired by the original ProjectNameGenerator page.</div>
     </main>
     <script src="app.js"></script>
 </body>
