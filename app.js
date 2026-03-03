@@ -114,23 +114,6 @@ function generateBatch(requestedStyle, count) {
   return { style, names: result };
 }
 
-function countCombinationsForStyle(style) {
-  const felinesByInitial = state.felinesByInitial;
-  const secondByInitial = state.secondByStyleInitial[style];
-  let total = 0;
-  for (const [letter, felineValues] of Object.entries(felinesByInitial)) {
-    const secondValues = secondByInitial[letter] || [];
-    total += felineValues.length * secondValues.length;
-  }
-  return total;
-}
-
-function updateCombinationCount() {
-  const node = document.getElementById("combination-count");
-  const total = STYLE_KEYS.reduce((sum, style) => sum + countCombinationsForStyle(style), 0);
-  node.textContent = `There are ${total.toLocaleString()} possible unique alliterative combinations.`;
-}
-
 function renderResults(style, names) {
   const title = document.getElementById("result-title");
   const list = document.getElementById("results");
@@ -165,7 +148,6 @@ function bindUi() {
 async function main() {
   try {
     await loadSources();
-    updateCombinationCount();
     bindUi();
     setStatus("Ready.");
   } catch (error) {
